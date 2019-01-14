@@ -68,6 +68,9 @@ While attempting to make the application secure (at least partly), I had to make
 1. Open the database.yml file located in shopping-cart/config
 2. Change the username: and passsword: fields to your mySQL username and password
 
+Note: The default username is testuser and the default password is password<br>
+Note 2: Before attempting to load the products into the DB, please ensure the username being used has permissions to create a database, create tables and populate them
+
 # Load products into DB
 Go to root directory of the shopping cart project then run the following command:<br>
 `$ rake db:drop db:create db:schema:load db:seed`
@@ -79,7 +82,8 @@ Note: If you get an "ActiveRecord::EnvironmentMismatchError" then run the follow
 Go to root directory of the shopping cart project then run the following command:<br>
 `$ bin/rails s`
 
-Visit [http://localhost:3000](http://localhost:3000)
+# Interacting with the API
+There are two easy ways to interact with the API, one is to use Postman (https://www.getpostman.com/), the other is to use the API documentation below as it allows you test all the routes through a GUI
 
 # View API documentation (using Swagger)
 
