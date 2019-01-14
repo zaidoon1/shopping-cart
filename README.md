@@ -49,7 +49,7 @@ There were two main challenges that I faced while making this application. The f
 
 While learning Ruby on Rails, I was faced with two challenges. First understanding how Routing works, and second understanding how Active Record works. Luckily, I was able to find my tutorials blogs about those two topics.
 
-While attempting to make the application secure (at least partly), I had to make many decisions. The problem with security is that it always comes at a cost, usually performance or usability. My main task was to try to balance between security and performance. When designing this application, I tried to make it easy to extend so that it can potentially be modified to handle millions of users and millions of products. 
+While attempting to make the application secure (at least partly), I had to make many decisions. The problem with security is that it always comes at a cost, usually performance or usability. My main task was to try to balance between security and performance. When designing this application, I tried to make it scalable. 
 
 # Prerequisites
 - Ruby
