@@ -1,0 +1,540 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/carts/{:cart_id}/cart_items/{:product_id}": {
+      "put": {
+        "summary": "Updates the quantity for an item in a cart",
+        "tags": [
+          "Cart_Items"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cart_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "cart_item",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "item_quantity": {
+                  "type": "integer"
+                }
+              },
+              "required": "item_quantity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item quantity updated.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cart or product not found."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Updates the quantity for an item in a cart",
+        "tags": [
+          "Cart_Items"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cart_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "cart_item",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "item_quantity": {
+                  "type": "integer"
+                }
+              },
+              "required": "item_quantity"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item quantity updated.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cart or product not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Removes an item from a cart",
+        "tags": [
+          "Cart_Items"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cart_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item quantity updated.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cart or product not found"
+          }
+        }
+      }
+    },
+    "/api/v1/carts/{:cart_id}/cart_items": {
+      "post": {
+        "summary": "Adds an item to a cart",
+        "tags": [
+          "Cart_Items"
+        ],
+        "description": "Adds an item to a cart. If the item already exists in the cart then the new quantity for the item is added to the old quantity stored",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cart_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "cart_item",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "integer"
+                },
+                "item_quantity": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "product_id",
+                "item_quantity"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item added",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cart or product not found"
+          }
+        }
+      }
+    },
+    "/api/v1/carts/{cart_id}": {
+      "get": {
+        "summary": "Retrieves all the items in a cart",
+        "tags": [
+          "Carts"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cart_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of items in the cart",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "cart_content": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "inventory_count": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "required": "product_id"
+            }
+          },
+          "404": {
+            "description": "cart not found"
+          }
+        }
+      }
+    },
+    "/api/v1/carts/": {
+      "post": {
+        "summary": "Creates a cart",
+        "tags": [
+          "Carts"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Cart created"
+          },
+          "422": {
+            "description": "Cart not created"
+          }
+        }
+      }
+    },
+    "/api/v1/carts/checkout": {
+      "post": {
+        "summary": "Attemps to checkout",
+        "tags": [
+          "Carts"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "description": "Attempts to checkout. If all the items are in stock then the product inventory is decreased for each item and the cart is cleared. An error will be returned if an item is out of stock or if the cart is empty",
+        "parameters": [
+          {
+            "name": "checkout",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "cart_id": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "cart_id"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Checkout successful."
+          },
+          "400": {
+            "description": "Checkout not completed."
+          },
+          "404": {
+            "description": "Cart not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": "product_id"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/{product_id}": {
+      "get": {
+        "summary": "Retrieves a product",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "product_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Product information",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "inventory_count": {
+                      "type": "integer"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": "product_id"
+            }
+          },
+          "404": {
+            "description": "Product not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": "product_id"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/": {
+      "get": {
+        "summary": "Retrieves all products",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of products",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "inventory_count": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/in_stock": {
+      "get": {
+        "summary": "Retrieves all products in stock",
+        "tags": [
+          "Products"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of products in stock",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "products": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "title": {
+                        "type": "string"
+                      },
+                      "price": {
+                        "type": "number"
+                      },
+                      "inventory_count": {
+                        "type": "integer"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

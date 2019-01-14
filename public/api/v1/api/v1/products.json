@@ -1,0 +1,54 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "products",
+  "apis": [
+    {
+      "path": "/api/v1/products.json",
+      "operations": [
+        {
+          "summary": "Fetches all Product items",
+          "notes": "This lists all the existing products",
+          "parameters": [
+
+          ],
+          "nickname": "Api::V1::Products#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/api/v1/products/{id}.json",
+      "operations": [
+        {
+          "summary": "Fetches a single Product item",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Product Id",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 200,
+              "responseModel": "Product",
+              "message": "Success"
+            },
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Api::V1::Products#show",
+          "method": "get"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}
