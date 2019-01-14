@@ -33,16 +33,18 @@ The following design decisions were made:
 
 2. Currently, after completing the cart checkout, the cart is emptied. This is to simulate a standard e-commerce website where after completing the purchase, you cart goes back to being empty. However, the application will obviously not store any of your previous orders like most e-commerce websites.
 
-3. The API currently has no access control as it was not required for the challenge. However, this is a security risk as it allows anyone to make as many requests as they want which results in high bandwidth usage and could potentially take down the server (DOS and DDOS attacks). The following can be done to mitigate this issue:
+3. The API checks if the product is in stock when adding an item to a cart as well as when attempting to checkout just like most e-commerce websites.
+
+4. The API currently has no access control as it was not required for the challenge. However, this is a security risk as it allows anyone to make as many requests as they want which results in high bandwidth usage and could potentially take down the server (DOS and DDOS attacks). The following can be done to mitigate this issue:
     1. Require API keys for each request made to the server. This limits the requests to only authorized individuals (for example employees and clients). The API keys can then be revoked if clients make an unreasonable number of requests within a short time frame.
     2. Setup an Intrusion Detection System (IDS) that detects when a DDOS attack is occurring and take further steps to mitigate it.
     3. Add user accounts and authentication. This is like the concept of API keys but now it's part of a full-blown e-commerce website with users.
 
-4. The shopping cart is currently configured to use the same database for development, test, and production. This is fine for the challenge; however, it is also a security risk and should not be done in production code.
+5. The shopping cart is currently configured to use the same database for development, test, and production. This is fine for the challenge; however, it is also a security risk and should not be done in production code.
 
-5. The API currently implements basic input validation and error handling; however, more validation should be implemented. Ideally, more research should be done to determine all the possible errors that can be raised by the Ruby/Rails functions being used. 
+6. The API currently implements basic input validation and error handling; however, more validation should be implemented. Ideally, more research should be done to determine all the possible errors that can be raised by the Ruby/Rails functions being used. 
 
-6. The API attempts to use SQL functions that are considered immune to SQL injection as much as possible. The API also attempts to and use as little user input as possible in the SQL queries. Before retrieving or modifying the database, the API checks if the data exists or not. This will result in extra calls which will reduce performance, however, since the data is small, I believe compromising a bit of performance is worth the added security.
+7. The API attempts to use SQL functions that are considered immune to SQL injection as much as possible. The API also attempts to and use as little user input as possible in the SQL queries. Before retrieving or modifying the database, the API checks if the data exists or not. This will result in extra calls which will reduce performance, however, since the data is small, I believe compromising a bit of performance is worth the added security.
 
 # Challenges
 There were two main challenges that I faced while making this application. The first was learning Ruby on Rails and the second was securing the application.
