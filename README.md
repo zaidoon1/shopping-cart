@@ -1,5 +1,5 @@
 # shopping-cart
-A simple shopping cart created using Ruby on Rails for Shopify's developer challenge.
+A simple shopping cart created using Ruby on Rails.
 
 # Summer 2019 Developer Intern Challenge
 
