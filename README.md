@@ -1,5 +1,3 @@
-***WARNING: This application is using an old version of actionview that has a security vurneability. Excercise caution while using this application***
-
 # shopping-cart
 A simple shopping cart created using Ruby on Rails.
 
