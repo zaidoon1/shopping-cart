@@ -51,7 +51,7 @@ The following design decisions were made:
 # Challenges
 There were two main challenges that I faced while making this application. The first was learning Ruby on Rails and the second was securing the application.
 
-While learning Ruby on Rails, I was faced with two challenges. First understanding how Routing works, and second understanding how Active Record works. Luckily, I was able to find my tutorials blogs about those two topics.
+While learning Ruby on Rails, I was faced with two challenges. First understanding how Routing works, and second understanding how Active Record works. Luckily, I was able to find many tutorials about those two topics.
 
 While attempting to make the application secure (at least partly), I had to make many decisions. The problem with security is that it always comes at a cost, usually performance or usability. My main task was to try to balance between security and performance. When designing this application, I tried to make it scalable. 
 
