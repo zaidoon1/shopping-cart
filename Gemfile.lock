@@ -42,7 +42,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     builder (3.2.3)
-    byebug (10.0.2)
+    byebug (11.0.1)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     diff-lcs (1.3)
