@@ -79,7 +79,7 @@ GEM
     nokogiri (1.10.2-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     public_suffix (3.0.3)
-    puma (3.12.0)
+    puma (3.12.1)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -163,7 +163,7 @@ DEPENDENCIES
   byebug
   faker
   mysql2
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.2.3)
   rspec-rails (~> 3.5)
   rswag
