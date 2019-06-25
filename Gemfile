@@ -11,7 +11,7 @@ gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.0'
 
 
 group :development, :test do
